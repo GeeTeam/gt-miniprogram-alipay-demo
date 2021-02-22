@@ -1,0 +1,110 @@
+## 支付宝小程序插件接入指南
+
+### 详细说明
+极验支付宝小程序插件与web相似，需要先完成服务端部署。本文主要描述极验支付宝小程序插件的使用流程，文档中的配置参数和api方法demo，均可在 GitHub上获取 ([demo地址](https://github.com/GeeTeam/gt-miniprogram-alipay-demo))。
+服务端部署参考 [服务端部署文档](https://docs.geetest.com/sensebot/deploy/server/java)
+
+### 插件配置参数
+
+| 参数 | 类型 | 说明 |
+| ---- | ---- | ---- |
+| gt | 字符串 | 验证 id，极验后台申请得到 |
+| challenge   | 字符串 | 验证流水号，服务端 SDK 向极验服务器申请得到                |
+| offline     | 布尔   | 极验API服务器是否宕机（即处于 failback 状态）                |
+|  loadCaptcha | 布尔 | 控制插件显示和隐藏的参数 |
+
+### 示例代码
+
+#### 页面 json 文件引用 captcha 组件
+```javascript
+{
+  "usingComponents": {
+    "captcha": "plugin://geetest/captcha"
+  }
+}
+```
+
+#### 页面 axml 文件嵌入 captcha 标签
+```javascript
+<captcha  a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" />
+```
+
+#### 组件事件
+```javascript
+<captcha  a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" onSuccess="captchaSuccess" lang="en" onReady="captchaReady" onClose="captchaClose" onError="captchaError" />
+```
+
+#### `onReady`
+
+监听验证按钮的 DOM 生成完毕事件。
+>代码示例:
+
+```js
+// axml
+<captcha  onReady="captchaReady"/>
+//js  
+captchaReady:function(){
+    console.log('captcha-Ready!')
+}
+```
+
+##### `onError`
+监听验证出错事件,刷新过多、静态资源加载失败、网络不给力等验证码能捕获到的错误(参考[ErrorCode](/sensebot/apirefer/errorcode/web/))，都会触发onError回调。
+
+**onError返回一个e，其中e.detail包含2个属性：code(错误码)、tips(错误提示)。我们在onError中要对challenge过期的情况做一个特殊的重置处理,代码如下**
+>代码示例:
+
+```js
+// axml
+<captcha  onError="captchaError"/>
+//js  
+captchaError: function (e) {
+        console.log('captcha-Error!', e.detail)
+        // 这里对challenge9分钟过期的机制返回做一个监控，如果服务端返回code:21,tips:not proof，则重新调用api1重置
+        if (e.detail.code === 21) {
+            var that = this
+            // 需要先将插件销毁
+            that.setData({ loadCaptcha: false })
+            // 重新调用api1
+            that.captchaRegister()
+        }
+}
+```
+
+#### `onSuccess`
+
+监听验证成功事件,返回一个result对象，包含3个属性：geetest_challenge、geetest_validate、geetest_seccode，这些参数为当前验证成功的凭据，
+二次验证时需要传入。
+>代码示例:
+
+```js
+// axml
+<captcha  onSuccess="captchaSuccess"/>
+//js  
+captchaSuccess:function(result){
+    console.log('captcha-Success!')
+    // 这里先将result中的参数保存，待进行二次验证时传入
+    this.setData({
+         result: result.detail
+    })
+}
+```
+
+##### `onClose`
+用户关闭弹出来的验证时，会触发该回调。
+
+>代码示例:
+
+```js
+// axml
+<captcha  onClose="captchaClose"/>
+//js      
+captchaClose:function(){
+    console.log('captcha-Close!')
+}
+```
+
+
+
+
+
