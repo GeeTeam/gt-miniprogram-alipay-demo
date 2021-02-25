@@ -13,7 +13,7 @@
 </view>
 <view id="captchabox" class='input'>
  <label for='captcha'>完成验证:</label>
-  <captcha id="captcha" a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" onSuccess="captchaSuccess" lang="en" onReady="captchaReady" onClose="captchaClose" onError="captchaError" toReset = "{{toReset}}" styleConfig="{{styleConfig}}"
+  <captcha id="captcha" a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" onSuccess="captchaSuccess"  onReady="captchaReady" onClose="captchaClose" onError="captchaError" toReset = "{{toReset}}" styleConfig="{{styleConfig}}"
   />
 </view>
 <button class='btn' id="btnSubmit" onTap='btnSubmit'>提交</button>

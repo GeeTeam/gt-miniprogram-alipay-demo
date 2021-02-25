@@ -14,6 +14,10 @@ Page({
           btnWidth: '260px'
         }
     },
+      onUnload() {
+    // 页面被关闭
+    console.log(111);
+    },
     onLoad: function() {
         this.captchaRegister()
     },

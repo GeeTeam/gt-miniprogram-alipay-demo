@@ -2,7 +2,9 @@
 
 ### 详细说明
 极验支付宝小程序插件与web相似，需要先完成服务端部署。本文主要描述极验支付宝小程序插件的使用流程，文档中的配置参数和api方法demo，均可在 GitHub上获取 ([demo地址](https://github.com/GeeTeam/gt-miniprogram-alipay-demo))。
-服务端部署参考 [服务端部署文档](https://docs.geetest.com/sensebot/deploy/server/java)
+服务端部署参考 [服务端部署文档](https://docs.geetest.com/sensebot/deploy/server/java)。
+定制参数和API接口可参考[极验微信小程序插件文档](https://docs.geetest.com/sensebot/apirefer/api/miniprogram/#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0)
+
 
 ### 插件配置参数
 
