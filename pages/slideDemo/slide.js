@@ -1,9 +1,3 @@
-/*
- * @Author: ziming
- * @Date: 2021-02-02 16:39:25
- * @LastEditors: ziming
- * @LastEditTime: 2021-02-02 17:59:59
- */
 /*eslint-disable no-console*/
 Page({
     data: {
@@ -11,12 +5,8 @@ Page({
         result: {},
         styleConfig: {
           color: '#2488FF',
-          btnWidth: '260px'
+          btnWidth: '120px'
         }
-    },
-      onUnload() {
-    // 页面被关闭
-    console.log(111);
     },
     onLoad: function() {
         this.captchaRegister()
@@ -29,7 +19,7 @@ Page({
     }, 
     captchaRegister: function () {
         var that = this
-        my.request({
+        tt.request({
             url: 'https://www.geetest.com/demo/gt/register-slide?t=' + new Date().getTime(),
             method: 'GET',
             dataType: 'json',
@@ -48,7 +38,7 @@ Page({
             console.log('请先完成验证！')
             return
         }
-        my.request({
+        tt.request({
             url: 'https://www.geetest.com/demo/gt/validate-slide?t=' + new Date().getTime(),
             method: 'POST',
             dataType: 'json',
@@ -58,9 +48,8 @@ Page({
                 geetest_seccode: data.geetest_seccode
             },
             success: function (res) {
-                my.showToast({
-                    type: 'success',
-                    content: res.data.status
+                tt.showToast({
+                    title: res.data.status
                 })
             },
             fail: function () {
@@ -71,7 +60,7 @@ Page({
     captchaSuccess:function(result){
         console.log('captcha-Success!')
         this.setData({
-            result: result
+            result: result.detail
         })
     },
     captchaReady:function(){
@@ -81,9 +70,9 @@ Page({
         console.log('captcha-Close!')
     },
     captchaError: function (e) {
-        console.log('captcha-Error!',e)
+        console.log('captcha-Error!',e.detail)
         // 这里对challenge9分钟过期的机制返回做一个监控，如果服务端返回code:21,tips:not proof，则重新调用api1重置
-        if(e.code === 21){
+        if(e.detail.code === 21){
             var that = this
             // 需要先将插件销毁
             that.setData({ loadCaptcha: false })

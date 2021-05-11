@@ -6,18 +6,19 @@ Page({
     onReady: function(){
     },
     toSlide:function(){
-        my.navigateTo({
-            url: '../slideDemo/slide',
+      console.log(111);
+        tt.navigateTo({
+            url: '/pages/slideDemo/slide',
         })
     },
     toClick: function () {
-        my.navigateTo({
-            url: '../clickDemo/click',
+        tt.navigateTo({
+            url: '/pages/clickDemo/click',
         })
     },
     toBind: function () {
-        my.navigateTo({
-            url: '../bindDemo/bindDemo',
+        tt.navigateTo({
+            url: '/pages/bindDemo/bindDemo',
         })
     }
 })
