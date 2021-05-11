@@ -1,12 +1,12 @@
 ## 支付宝小程序插件接入指南
 
 ### 详细说明
-极验支付宝小程序插件与web相似，需要先完成服务端部署。本文主要描述极验支付宝小程序插件的使用流程，文档中的配置参数和api方法demo，均可在 GitHub上获取 ([demo地址](https://github.com/GeeTeam/gt-miniprogram-alipay-demo))。
+极验字节跳动小程序组件与web相似，需要先完成服务端部署。本文主要描述极验字节跳动小程序组件的使用流程，文档中的配置参数和api方法demo，均可在 GitHub上获取 ([demo地址](https://github.com/GeeTeam/gt-miniprogram-alipay-demo))。
 服务端部署参考 [服务端部署文档](https://docs.geetest.com/sensebot/deploy/server/java)。
 定制参数和API接口可参考[极验微信小程序插件文档](https://docs.geetest.com/sensebot/apirefer/api/miniprogram/#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0)
 
 
-### 插件配置参数
+### 组件配置参数
 
 | 参数 | 类型 | 说明 |
 | ---- | ---- | ---- |
@@ -15,13 +15,19 @@
 | offline     | 布尔   | 极验API服务器是否宕机（即处于 failback 状态）                |
 |  loadCaptcha | 布尔 | 控制插件显示和隐藏的参数 |
 
-### 示例代码
 
+### 使用方式
+1.在本demo的components文件夹下获取组件，自行解压geetest.zip到项目
+
+2.参考字节跳动小程序组件([使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component))
+
+
+### 示例代码
 #### 页面 json 文件引用 captcha 组件
 ```javascript
 {
   "usingComponents": {
-    "captcha": "plugin://geetest/captcha"
+    "captcha": "/components/geetest/captcha"
   }
 }
 ```
