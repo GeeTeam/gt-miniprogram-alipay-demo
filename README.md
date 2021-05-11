@@ -1,4 +1,4 @@
-## 支付宝小程序插件接入指南
+## 极验字节跳动小程序组件接入指南
 
 ### 详细说明
 极验字节跳动小程序组件与web相似，需要先完成服务端部署。本文主要描述极验字节跳动小程序组件的使用流程，文档中的配置参数和api方法demo，均可在 GitHub上获取 ([demo地址](https://github.com/GeeTeam/gt-miniprogram-alipay-demo))。
@@ -32,14 +32,14 @@
 }
 ```
 
-#### 页面 axml 文件嵌入 captcha 标签
+#### 页面 ttml 文件嵌入 captcha 标签
 ```javascript
-<captcha  a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" />
+<captcha  tt:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" />
 ```
 
 #### 组件事件
 ```javascript
-<captcha  a:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" onSuccess="captchaSuccess" lang="en" onReady="captchaReady" onClose="captchaClose" onError="captchaError" />
+<captcha  tt:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}" onSuccess="captchaSuccess" lang="en" onReady="captchaReady" onClose="captchaClose" onError="captchaError" />
 ```
 
 #### `onReady`
@@ -63,7 +63,7 @@ captchaReady:function(){
 >代码示例:
 
 ```js
-// axml
+// ttml
 <captcha  onError="captchaError"/>
 //js  
 captchaError: function (e) {
@@ -86,7 +86,7 @@ captchaError: function (e) {
 >代码示例:
 
 ```js
-// axml
+// ttml
 <captcha  onSuccess="captchaSuccess"/>
 //js  
 captchaSuccess:function(result){
@@ -104,7 +104,7 @@ captchaSuccess:function(result){
 >代码示例:
 
 ```js
-// axml
+// ttml
 <captcha  onClose="captchaClose"/>
 //js      
 captchaClose:function(){
