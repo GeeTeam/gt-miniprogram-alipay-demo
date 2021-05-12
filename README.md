@@ -6,7 +6,15 @@
 定制参数和API接口可参考[极验微信小程序插件文档](https://docs.geetest.com/sensebot/apirefer/api/miniprogram/#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0)
 
 
-### 组件配置参数
+### 使用方式
+1.在本demo的components文件夹下获取组件，自行解压geetest.zip到项目
+
+2.参考字节跳动小程序组件([使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component))
+
+3.在小程序后台添加以下合法域名 	 https://api.geetest.com  https://monitor.geetest.com
+
+
+### 必须的组件配置参数
 
 | 参数 | 类型 | 说明 |
 | ---- | ---- | ---- |
@@ -16,13 +24,10 @@
 |  loadCaptcha | 布尔 | 控制插件显示和隐藏的参数 |
 
 
-### 使用方式
-1.在本demo的components文件夹下获取组件，自行解压geetest.zip到项目
-
-2.参考字节跳动小程序组件([使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component))
 
 
-### 示例代码
+### 以下内容均为示例代码
+
 #### 页面 json 文件引用 captcha 组件
 ```javascript
 {
