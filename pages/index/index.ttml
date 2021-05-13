@@ -1,7 +1,7 @@
 
 <view class='container'>
 <view class='header'>
-      极验微信小程序插件demo
+  极验字节跳动小程序demo
 </view>
 <view class='list'>
   <button bindtap='toSlide'>slide-滑动模式</button>

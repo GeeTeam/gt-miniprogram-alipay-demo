@@ -215,4 +215,4 @@
   </view>
 </view>
 
-<image tt:for="{{ imgLoadList }}" tt:key="*this" src="{{ item }}" data-src="{{ item }}" onLoad="imgLoad" onError="imgFail" style="width:0;height:0;opacity:0;display:none" />
+<image tt:for="{{ imgLoadList }}" tt:key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad" binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />

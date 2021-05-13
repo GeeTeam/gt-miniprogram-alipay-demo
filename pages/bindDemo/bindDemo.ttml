@@ -1,6 +1,6 @@
 <view class='container'>
 <view class='header'>
-      极验微信小程序demo
+  极验字节跳动小程序demo
 </view>
 <view class='input'>
   <label for='username'>用户名:</label>

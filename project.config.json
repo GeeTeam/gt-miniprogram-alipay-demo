@@ -1,13 +1,15 @@
 {
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true
+    "newFeature": false,
+    "postcss": false,
+    "mockUpdate": false,
+    "minified": false,
+    "scripts": false
   },
   "scripts": {},
-  "appid": "testAppId",
+  "appid": "your appid",
   "projectname": "geetest",
   "projectType": "app",
   "condition": {
