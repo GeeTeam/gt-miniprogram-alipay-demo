@@ -1,8 +1,10 @@
-<view tt:if="{{!loading && iShow}}" bindtap='clickButton'  class="geetest_holder geetest_wind {{css}}" style='width:{{styleConfig.btnWidth}}'>
+<view tt:if="{{!loading && iShow}}" bindtap='clickButton' class="geetest_holder geetest_wind {{css}}"
+  style='width:{{styleConfig.btnWidth}}'>
   <view class="geetest_btn">
     <view class="geetest_radar_btn">
       <view class="geetest_radar">
-        <view class="geetest_ring" style="box-shadow: inset 0 0 0 1px {{styleConfig.color}};background-color:{{styleConfig.color}}60;">
+        <view class="geetest_ring"
+          style="box-shadow: inset 0 0 0 1px {{styleConfig.color}};background-color:{{styleConfig.color}}60;">
           <view class="geetest_small"></view>
         </view>
         <view class="geetest_sector">
@@ -18,7 +20,7 @@
         </view>
         <view class="geetest_status">
           <view class="geetest_bg"></view>
-        <view class="geetest_hook"></view>
+          <view class="geetest_hook"></view>
         </view>
       </view>
       <view class="geetest_radar_tip">
@@ -53,7 +55,7 @@
   <view class="geetest_panel">
     <view class="geetest_panel_ghost"></view>
     <view class="geetest_panel_box">
-      <view class="geetest_other_offline geetest_panel_offline" ></view>
+      <view class="geetest_other_offline geetest_panel_offline"></view>
       <view class="geetest_panel_loading">
         <view class="geetest_panel_loading_icon"></view>
         <view class="geetest_panel_loading_content"></view>
@@ -66,70 +68,81 @@
             <view class="geetest_panel_success_mask"></view>
           </view>
           <view class="geetest_panel_success_correct">
-          <view class="geetest_panel_success_icon"></view>
+            <view class="geetest_panel_success_icon"></view>
+          </view>
         </view>
+        <view class="geetest_panel_success_title"></view>
       </view>
-      <view class="geetest_panel_success_title"></view>
-    </view>
-    <view class="geetest_panel_error">
-      <view class="geetest_panel_error_icon"></view>
-      <view class="geetest_panel_error_title"></view>
-      <view class="geetest_panel_error_content"></view>
-      <view class="geetest_panel_error_code"></view>
-    </view>
-    <view class="geetest_panel_footer">
-      <view class="geetest_panel_footer_logo"></view>
-      <view class="geetest_panel_footer_copyright"></view>
-    </view>
-    <view class="geetest_panel_next"></view>
+      <view class="geetest_panel_error">
+        <view class="geetest_panel_error_icon"></view>
+        <view class="geetest_panel_error_title"></view>
+        <view class="geetest_panel_error_content"></view>
+        <view class="geetest_panel_error_code"></view>
+      </view>
+      <view class="geetest_panel_footer">
+        <view class="geetest_panel_footer_logo"></view>
+        <view class="geetest_panel_footer_copyright"></view>
+      </view>
+      <view class="geetest_panel_next"></view>
     </view>
   </view>
 </view>
-<view tt:if="{{loading && iShow}}" class="geetest_holder geetest_wind"><button>{{lang_tips.fullpage.loading}}</button></view>
+<view tt:if="{{loading && iShow}}" class="geetest_holder geetest_wind"><button>{{lang_tips.fullpage.loading}}</button>
+</view>
 
 <view tt:if="{{showclick}}" class="geetest_holder geetest_silver geetest_popup" style='display:block;opacity:1'>
   <view class="geetest_popup_ghost" bindtap='hideClickPopup'></view>
-  <view class="geetest_popup_box" bindtap='geetest_tap' bindlongtap='geetest_longtap' bindtouchstart='geetest_touchstart' bindtouchmove='geetest_touchmove' bindtouchend='geetest_touchend' bindtouchcancel='geetest_touchcancel'>
+  <view class="geetest_popup_box" bindtap='geetest_tap' bindlongtap='geetest_longtap'
+    bindtouchstart='geetest_touchstart' bindtouchmove='geetest_touchmove' bindtouchend='geetest_touchend'
+    bindtouchcancel='geetest_touchcancel'>
     <view class="geetest_widget">
       <view class="geetest_head">
         <view class="geetest_tips">
           <view class="geetest_tip_content" style='margin-top:{{header.space}}' tt:if='{{showclickHeader}}'>
-          {{lang_tips.click.conTip1}}<view class="geetest_mark" style='color:{{styleConfig.color}}'>{{lang_tips.click.conTip2}}</view>{{lang_tips.click.conTip3}}
+            {{lang_tips.click.conTip1}}<view class="geetest_mark" style='color:{{styleConfig.color}}'>
+              {{lang_tips.click.conTip2}}</view>{{lang_tips.click.conTip3}}
           </view>
-          <view tt:if='{{imgc.src && !imgc.hide}}' class="geetest_tip_img" style="width: 116px; height: 40px; right: -116px; top: -10px; display: block; background-image: url({{imgc.src}});"></view>
+          <view tt:if='{{imgc.src && !imgc.hide}}' class="geetest_tip_img"
+            style="width: 116px; height: 40px; right: -116px; top: -10px; display: block; background-image: url({{imgc.src}});">
+          </view>
         </view>
         <view class="geetest_atips">
           <view class="geetest_atip_content" tt:if='{{!showclickHeader}}'>
-           {{lang_tips.click.conTip1}}<view class="geetest_mark" style='color:{{styleConfig.color}}'>{{lang_tips.click.conTip2}}</view>{{lang_tips.click.conTip3}}
+            {{lang_tips.click.conTip1}}<view class="geetest_mark" style='color:{{styleConfig.color}}'>
+              {{lang_tips.click.conTip2}}</view>{{lang_tips.click.conTip3}}
           </view>
           <view class='geetest_tip_text {{phrase_num}}'>
-              <view class='{{item.className}} {{item.isShow}} geetest_view' tt:for = "{{phrase}}" tt:key="index">
-                  <text class='geetest_text'>{{index+1}}</text>
-              </view>
+            <view class='{{item.className}} {{item.isShow}} geetest_view' tt:for="{{phrase}}" tt:key="index">
+              <text class='geetest_text'>{{index+1}}</text>
+            </view>
           </view>
         </view>
       </view>
       <view class="geetest_table_box">
         <view class="geetest_window">
-          <view tt:if='{{isClick || !imgc.src }}' class="geetest_item geetest_big_item" style="width: 95.8%; padding-bottom: 95.8%;" id="img-infos">
+          <view tt:if='{{isClick || !imgc.src }}' class="geetest_item geetest_big_item"
+            style="width: 95.8%; padding-bottom: 95.8%;" id="img-infos">
             <view class="geetest_item_loading">
               <view class="geetest_item_loading_icon"></view>
               <view class="geetest_item_loading_tip">{{lang_tips.click.loading}}</view>
             </view>
-            <view class="geetest_item_wrap"  bindtap='addMarks'>
-              <image class="geetest_item_img" src="{{imgc.src}}" style="right: 0px; top: 0px; width: 100%; height: 112%;"></image>
+            <view class="geetest_item_wrap" bindtap='addMarks'>
+              <image class="geetest_item_img" src="{{imgc.src}}"
+                style="right: 0px; top: 0px; width: 100%; height: 112%;"></image>
             </view>
-            <view class="geetest_big_mark geetest_mark_show" tt:for="{{marks}}" tt:key="{{item.style}}" style="{{item.style}};background-color:{{styleConfig.color}};" bindtap="remove" data-index="{{index}}">
-                <view class="geetest_mark_no">{{index+1}}</view>
+            <view class="geetest_big_mark geetest_mark_show" tt:for="{{marks}}" tt:key="{{item.style}}"
+              style="{{item.style}};background-color:{{styleConfig.color}};" bindtap="remove" data-index="{{index}}">
+              <view class="geetest_mark_no">{{index+1}}</view>
             </view>
           </view>
-          <view class='geetest_item' style='width:31%;padding-bottom:31%' tt:for = "{{nines}}" tt:key="index">
-              <view class='geetest_item_wrap'>
-                    <image class='geetest_item_img' src='{{item.src}}' style='{{item.style}}'></image>
-              </view>
-              <view class='geetest_item_ghost {{item.classname}}' data-answes='{{item.ans}}' data-classsindex='{{index}}' bindtap='addNines'>
-                  <view class='geetest_item_icon'></view>
-              </view>
+          <view class='geetest_item' style='width:31%;padding-bottom:31%' tt:for="{{nines}}" tt:key="index">
+            <view class='geetest_item_wrap'>
+              <image class='geetest_item_img' src='{{item.src}}' style='{{item.style}}'></image>
+            </view>
+            <view class='geetest_item_ghost {{item.classname}}' data-answes='{{item.ans}}' data-classsindex='{{index}}'
+              bindtap='addNines'>
+              <view class='geetest_item_icon'></view>
+            </view>
           </view>
         </view>
         <view class="geetest_result_tip {{click.tips_class}}">{{click.tips_text}}</view>
@@ -141,7 +154,7 @@
           <view class='geetest_refresh' bindtap='refreshClick'></view>
         </view>
         <view class='geetest_commit' catchTap='validateBtn'>
-          <view class="geetest_commit_tip" >{{lang_tips.click.comfirm}}</view>
+          <view class="geetest_commit_tip">{{lang_tips.click.comfirm}}</view>
         </view>
       </view>
     </view>
@@ -160,19 +173,24 @@
             <label class="geetest_link">
               <view class="geetest_div_img geetest_absolute">
                 <view class="geetest_slicebg geetest_absolute">
-                  <view class="geetest_div_bg geetest_absolute" style='height:{{slideConfig.slideHeight}};font-size:0px'>
+                  <view class="geetest_div_bg geetest_absolute"
+                    style='height:{{slideConfig.slideHeight}};font-size:0px'>
                     <block tt:for="{{slideConfig.bgPosition}}" tt:key="index">
-                      <view tt:if="{{slideConfig.bg}}" class='geetest_view' style='background-position:{{item}};background-image:url("{{slideConfig.bg}}")'></view>
+                      <view tt:if="{{slideConfig.bg}}" class='geetest_view'
+                        style='background-position:{{item}};background-image:url("{{slideConfig.bg}}")'></view>
                     </block>
                   </view>
-                  <view tt:if="{{slideConfig.slice}}" class="geetest_div_slice geetest_absolute" style='left:{{slideConfig.sliceLeft}};top:{{slideConfig.sliceTop}};width:{{slideConfig.sliceWidth}};height:{{slideConfig.sliceHeight}};transform: translate({{translateX}}px, 0px);background-repeat:no-repeat;background-image:url("{{slideConfig.slice}}")'></view>
+                  <view tt:if="{{slideConfig.slice}}" class="geetest_div_slice geetest_absolute"
+                    style='left:{{slideConfig.sliceLeft}};top:{{slideConfig.sliceTop}};width:{{slideConfig.sliceWidth}};height:{{slideConfig.sliceHeight}};transform: translate({{translateX}}px, 0px);background-repeat:no-repeat;background-image:url("{{slideConfig.slice}}")'>
+                  </view>
                 </view>
               </view>
             </label>
             <view class="geetest_refresh" href="javascript:;" style="display: block;">
               <view class="geetest_refresh_tip"></view>
             </view>
-            <view class="geetest_loading geetest_absolute geetest_fade" style="padding-top: 10%; opacity: 1; display: block;z-index:-1">
+            <view class="geetest_loading geetest_absolute geetest_fade"
+              style="padding-top: 10%; opacity: 1; display: block;z-index:-1">
               <view class="geetest_loading_icon"></view>
               <view class="geetest_loading_tip">{{lang_tips.slide.loading}}</view>
             </view>
@@ -189,8 +207,12 @@
           <view class="geetest_slider_track">
             <view class="geetest_slider_tip geetest_fade">{{lang_tips.slide.slide}}</view>
           </view>
-          <view class="geetest_slider_button" style="transform: translate({{translateX}}px, 0px);background-clolr:red" bindtouchstart="slideButtonTouchStart" bindtouchmove="slideButtonTouchMove" bindtouchend="slideButtonTouchEnd" id='geetest_slider_button'>
-            <view class='geetest_slider_icon' style='background-color:{{styleConfig.color}};border-left:2px solid {{styleConfig.color}};border-right:2px solid {{styleConfig.color}};' hidden="{{show_icon}}"></view>
+          <view class="geetest_slider_button" style="transform: translate({{translateX}}px, 0px);background-clolr:red"
+            catchtouchstart="slideButtonTouchStart" catchtouchmove="slideButtonTouchMove"
+            catchtouchend="slideButtonTouchEnd" id='geetest_slider_button'>
+            <view class='geetest_slider_icon'
+              style='background-color:{{styleConfig.color}};border-left:2px solid {{styleConfig.color}};border-right:2px solid {{styleConfig.color}};'
+              hidden="{{show_icon}}"></view>
 
             <view class='geetest_slider_move' hidden="{{!show_icon}}">
               <view class='geetest_left_triangle' style='border-right: 7px solid {{styleConfig.color}}'></view>
@@ -215,4 +237,5 @@
   </view>
 </view>
 
-<image tt:for="{{ imgLoadList }}" tt:key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad" binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />
+<image tt:for="{{ imgLoadList }}" tt:key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad"
+  binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />
